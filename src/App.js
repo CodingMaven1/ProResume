@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { PDFExport } from '@progress/kendo-react-pdf';
+import Template from './templates/template1';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+ 
+  exportPDF = () => {
+    this.resume.save();
+}
+
+  render(){
+    return (
+      <div className="App">
+        <PDFExport paperSize={'Letter'} fileName="_____.pdf" title="" subject="" keywords="" ref={(r) => this.resume = r}>
+          <Template />
+        </PDFExport>
+        <button onClick={this.exportPDF}>download</button>
+
+      </div>
+    );
+  }
 }
 
 export default App;
