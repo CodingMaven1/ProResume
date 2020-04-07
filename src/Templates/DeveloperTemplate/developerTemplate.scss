@@ -1,0 +1,26 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Template{
+    height: 95vh;
+    width: 40vw;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+
+    .Template--Header{
+        height: 25%;
+        width: 100%;
+        background-color: #1c3a4e;
+        @include flexCenter;        
+
+        .Template--HeaderBox{
+            height: 55%;
+            width: 70%;
+            border: 5px solid #fff ;
+        }
+    }
+}
