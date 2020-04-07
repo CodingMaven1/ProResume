@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
 @mixin flexCenter {
     display: flex;
     align-items: center;
@@ -5,11 +6,12 @@
 }
 
 .Template{
-    height: 95vh;
+    height: 120vh;
     width: 40vw;
     background-color: #eaeaea;
     display: flex;
     flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
 
     .Template--Header{
         height: 25%;
@@ -21,6 +23,33 @@
             height: 55%;
             width: 70%;
             border: 5px solid #fff ;
+            @include flexCenter;
+            position: relative;
+
+            .Template--HeaderBoxHeading{
+                font-size: 3.7rem;
+                text-transform: uppercase;
+                color: #fff;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+            }
+
+            .Template--HeaderBoxDesignation{
+                @include flexCenter;
+                height: 40%;
+                background-color: #fff;
+                position: absolute;
+                bottom: -22%;
+
+                .Template--HeaderBoxDesignationHeading{
+                    font-size: 1.7rem;
+                    text-transform: uppercase;
+                    padding-left: 4rem;
+                    padding-right: 4rem;
+                    font-weight: 600;
+                    color: #1c3a4e;
+                }
+            }
         }
     }
 }

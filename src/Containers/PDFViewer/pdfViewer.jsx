@@ -18,7 +18,7 @@ class PDFViewer extends React.Component {
     render(){
         return(
             <div className="PDFViewer">
-                <PDFExport paperSize={'Letter'} fileName="_____.pdf" title="" subject="" keywords="" ref={(r) => this.resume = r}>
+                <PDFExport paperSize='A4' scale={0.775} fileName="resume.pdf" title="" subject="" keywords="" ref={(r) => this.resume = r}>
                     <DeveloperTemplate />
                 </PDFExport>
                 <button onClick={this.exportPDF}>download</button>
