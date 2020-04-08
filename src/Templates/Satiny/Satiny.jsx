@@ -9,8 +9,10 @@ const Satiny = (props) => {
         <div className="Satiny">
             <div className="Satiny--Left">
                 <img src={Dp} alt="Dp" className="Satiny--LeftImg" />
-                <h1 className="Satiny--LeftName">{name}</h1>
-                <h1 className="Satiny--LeftPos">{pos}</h1>
+                <div className="Satiny--LeftPerson">
+                    <h1 className="Satiny--LeftName">{name}</h1>
+                    <h1 className="Satiny--LeftPos">{pos}</h1>
+                </div>
                 <div className="Satiny--LeftAbout">
                     <h1 className="Satiny--LeftTitle">Profile Summary</h1>
                     <p className="Satiny--LeftPara">{about}</p>
@@ -25,9 +27,68 @@ const Satiny = (props) => {
                         })
                     }
                 </div>
+                <div className="Satiny--LeftContact">
+                    <h1 className="Satiny--LeftTitle">Contact Details</h1>
+                    <p className="Satiny--LeftPara">Mobile: {contact.Mobile}</p>
+                    <p className="Satiny--LeftPara">Email: {contact.Email}</p>
+                    <p className="Satiny--LeftPara">Website: {contact.Website}</p>
+                    <p className="Satiny--LeftPara">Address: {contact.Address}</p>
+
+                </div>
             </div>
             <div className="Satiny--Right">
+                <div className="Satiny--RightCareer">
+                    <h1 className="Satiny--RightTitle">Career History</h1>
+                        {
+                            careerHistory.map((obj,index) => {
+                                return(
+                                    <div key={index}>
+                                        <h1 className="Satiny--RightSubtitle">{obj[0]}</h1>
+                                        <h1 className="Satiny--RightDuration">{obj[1]}</h1>
+                                        {
+                                            obj[2].map((item,idx)=>{
+                                                return(
+                                                <p key={idx} className="Satiny--RightPara">{item}</p>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                </div>
 
+                <div className="Satiny--RightEducation">
+                    <h1 className="Satiny--RightTitle">Education</h1>
+                    {
+                            education.map((obj,index) => {
+                                return(
+                                    <div key={index}>
+                                        <h1 className="Satiny--RightSubtitle">{obj[0]}</h1>
+                                        <h1 className="Satiny--RightDuration">{obj[1]}</h1>
+                                        {
+                                            obj[2].map((item,idx)=>{
+                                                return(
+                                                <p key={idx} className="Satiny--RightPara">{item}</p>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                </div>
+
+                <div className="Satiny--RightSkills">
+                    <h1 className="Satiny--RightTitle">Skills</h1>
+                    {
+                        skills.map((obj,index) => {
+                            return(
+                                <p key={index} className="Satiny--RightPara">{obj}</p>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )

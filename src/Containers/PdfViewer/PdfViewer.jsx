@@ -9,16 +9,16 @@ class PdfViewer extends React.Component {
         super(props);
 
         this.state = {
-            satiny: TemplateDummyData.Satiny
+            data: TemplateDummyData[this.props.type]
         }
     }
 
     render(){
         return(
             <div>
-                <Satiny name={this.state.satiny.Name} pos={this.state.satiny.Pos} about={this.state.satiny.About} achievements={this.state.satiny.Achievements} 
-                        contact={this.state.satiny.Contact} careerHistory={this.state.satiny.CareerHitsory} education={this.state.satiny.Eduation} 
-                        skills={this.state.satiny.Skills} />
+                <Satiny name={this.state.data.Name} pos={this.state.data.Pos} about={this.state.data.About} achievements={this.state.data.Achievements} 
+                        contact={this.state.data.Contact} careerHistory={this.state.data.CareerHitsory} education={this.state.data.Education} 
+                        skills={this.state.data.Skills} />
             </div>
         )
     }
