@@ -1,27 +1,37 @@
 import React from "react";
+import { connect } from 'react-redux';
 import Satiny from '../../Templates/Satiny/Satiny';
 import TemplateDummyData from './TemplateDummyData';
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {
 
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
 
-        this.state = {
-            data: TemplateDummyData[this.props.type]
-        }
-    }
+    //     this.state = {
+    //         data: TemplateDummyData[this.props.type]
+    //     }
+    // }
 
     render(){
+        let data = this.props.data;
+
         return(
             <div>
-                <Satiny name={this.state.data.Name} pos={this.state.data.Pos} about={this.state.data.About} achievements={this.state.data.Achievements} 
-                        contact={this.state.data.Contact} careerHistory={this.state.data.CareerHitsory} education={this.state.data.Education} 
-                        skills={this.state.data.Skills} />
+                {/* <Satiny name={data.Name} pos={data.Pos} about={data.About} achievements={data.Achievements} 
+                        contact={data.Contact} careerHistory={data.CareerHitsory} education={data.Education} 
+                        skills={data.Skills} /> */}
+                <Satiny name={data.Name} pos={data.Pos} about={data.About} achievements={data.Achievements} 
+                        contact={data.Contact} careerHistory={data.CareerHitsory} education={data.Education} 
+                        skills={data.Skills} />
             </div>
         )
     }
 }
 
-export default PdfViewer;
+const mapStateToProps = state => ({
+    data: state.user.data
+})
+
+export default connect(mapStateToProps)(PdfViewer);
