@@ -19,7 +19,8 @@ class PdfViewer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    data: state.user.data
+    data: state.user.data,
+    template: state.user.template
 })
 
 export default connect(mapStateToProps)(PdfViewer);
