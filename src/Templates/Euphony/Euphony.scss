@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&display=swap');
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Euphony{
+    height: 95vh;
+    width: 40vw;
+    background-color: #f0eee2;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+
+    .Euphony--Header{
+        height: 25%;
+        width: 100%;
+    }
+
+    .Euphony--Body{
+        height: 75%;
+        width: 100%;
+    }
+}

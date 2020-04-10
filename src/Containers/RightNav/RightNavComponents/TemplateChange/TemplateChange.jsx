@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {changeTemplate} from '../../../../redux/user/user-actions';
 import TemplateCard from '../../../../Components/TemplateCard/TemplateCard';
 import './TemplateChange.scss';
-import TemplateDummyData from "../../../PdfViewer/TemplateDummyData";
 
 class TemplateChange extends React.Component {
     render(){
@@ -11,14 +10,14 @@ class TemplateChange extends React.Component {
         return(
             <div className="TemplateChange">
                 <TemplateCard clicked={() => changeTemplate("Satiny")} />
-                <TemplateCard clicked={() => changeTemplate("Template2")} />
+                <TemplateCard clicked={() => changeTemplate("Euphony")} />
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    changeTemplate: data => dispatch(changeTemplate(data))
+    changeTemplate: type => dispatch(changeTemplate(type))
 })
 
 export default connect(null,mapDispatchToProps)(TemplateChange);
