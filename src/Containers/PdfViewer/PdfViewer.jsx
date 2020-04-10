@@ -15,7 +15,9 @@ class PdfViewer extends React.Component {
                             skills={data.Skills} />
         }
         else if(template === "Euphony"){
-            userTemplate = <Euphony />
+            userTemplate = <Euphony name={data.Name} pos={data.Pos} about={data.About} achievements={data.Achievements} 
+                            contact={data.Contact} careerHistory={data.CareerHitsory} education={data.Education} 
+                            skills={data.Skills}  />
         }
 
         return(

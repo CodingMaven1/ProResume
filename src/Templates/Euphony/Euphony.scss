@@ -14,12 +14,113 @@
     font-family: 'Raleway', sans-serif;
 
     .Euphony--Header{
-        height: 25%;
+        height: 21%;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        color: #272727;
+
+        .Euphony--HeaderName{
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #1e5559;
+        }
+
+        .Euphony--HeaderPos{
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 500;
+        }
+
+        .Euphony--HeaderContact{
+            display: flex;
+            align-items: center;
+
+            .Euphony--HeaderContactTitle{
+                font-size: 1.4rem;
+                font-weight: 500;
+                padding-left: 3rem;
+            }
+        }
     }
 
     .Euphony--Body{
-        height: 75%;
+        height: 79%;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .Euphony--BodyTitle{
+            position: absolute;
+            top: -25%;
+            height: 40%;
+            width: 38%;
+            background-color: #272727;
+            @include flexCenter;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .Euphony--BodyAbout{
+            height: 20%;
+            width: 85%;
+            border: 3px solid #272727;
+            position: relative;
+            @include flexCenter;
+
+            .Euphony--BodyAboutContent{
+                font-size: 1.5rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        .Euphony--BodyEducation{
+            height: 20%;
+            width: 85%;
+            border: 3px solid #272727;
+            position: relative;
+            @include flexCenter;
+
+            .Euphony--BodyEducationContainer{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                .Euphony--BodyEducationContent{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .Euphony--BodyEducationContentYear{
+                        font-size: 1.7rem;
+                        font-weight: 600;
+                        padding-bottom: 0.6rem;
+                    }
+
+                    .Euphony--BodyEducationContentCollegeName{
+                        font-size: 1.7rem;
+                        padding-bottom: 0.5rem;
+                        font-weight: 500;
+                    }
+
+                    .Euphony--BodyEducationContentCollegeDegree{
+                        font-size: 1.55rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
     }
 }
