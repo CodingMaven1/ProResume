@@ -1,0 +1,23 @@
+.PdfViewer{
+    height: 100vh;
+    width: 56vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.PdfViewer::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.PdfViewer::-webkit-scrollbar{
+    background-color:transparent;
+    width:10px
+}
+
+.PdfViewer::-webkit-scrollbar-thumb
+{
+    border-radius: 1rem;
+	background-color: #fff;
+}

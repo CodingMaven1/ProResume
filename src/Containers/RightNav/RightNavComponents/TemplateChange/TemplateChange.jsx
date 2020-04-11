@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {changeTemplate} from '../../../../redux/user/user-actions';
-import TemplateCard from '../../../../Components/TemplateCard/TemplateCard';
+import satiny from '../../../../Assets/satiny.png';
+import euphony from '../../../../Assets/euphony.png';
 import './TemplateChange.scss';
 
 class TemplateChange extends React.Component {
@@ -9,8 +10,8 @@ class TemplateChange extends React.Component {
         let {changeTemplate} = this.props;
         return(
             <div className="TemplateChange">
-                <TemplateCard clicked={() => changeTemplate("Satiny")} />
-                <TemplateCard clicked={() => changeTemplate("Euphony")} />
+                <img className="TemplateChange--Img" src={satiny} onClick={() => changeTemplate("Satiny")} />
+                <img className="TemplateChange--Img" src={euphony} onClick={() => changeTemplate("Euphony")} />
             </div>
         )
     }

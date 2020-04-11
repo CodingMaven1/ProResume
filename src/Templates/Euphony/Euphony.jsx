@@ -39,6 +39,42 @@ const Euphony = (props) => {
                     }
                     </div>
                 </div>
+                <div className="Euphony--BodyRow">
+                    <div className="Euphony--BodyCareer">
+                        <div className="Euphony--BodyTitle">Work Experience</div>
+                        {
+                            careerHistory.map((opt,idx) => {
+                                return(
+                                    <div key={idx} className="Euphony--BodyCareerInfo">
+                                        <h1 className="Euphony--BodyCareerInfoTitle">{opt[1]}</h1>
+                                        <h2 className="Euphony--BodyCareerInfoSubtitle">{opt[0]}</h2>
+                                        <div className="Euphony--BodyCareerInfoDetail">
+                                            {
+                                                opt[2].map((option,index) => {
+                                                    return(
+                                                        <p key={index} className="Euphony--BodyCareerInfoHeading">{option}</p>  
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className="Euphony--BodySkills">
+                        <div className="Euphony--BodyTitle">Skills</div>
+                        <div className="Euphony--BodySkillsInfo">
+                            {
+                                skills.map((opt,idx) => {
+                                    return(
+                                        <p className="Euphony--BodySkillsInfoTitle" key={idx}>{opt}</p>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

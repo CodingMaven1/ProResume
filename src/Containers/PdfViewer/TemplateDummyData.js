@@ -35,7 +35,7 @@ const TemplateDummyData = {
         ['Designed and developed branding concepts.','Was involved in creating promotional materials for various campaigns']],['Graphic Designer', 'Kin | 2015-2017',
         ['A Year apprenticeship at the Kin, a research and design studio, as editorial graphic designer.']]],
         Education: [['University of the Arts London','Graphic Design degree',['2012-2014']],['Norwich University of Arts','Fine Arts Degree',['2010-2012']]],
-        Skills: ["Familiar with, audio, lighting, dressing rooms, scripting, and music production.",'Managing live performances.','Good organization and people skills.'],
+        Skills: ['ReactJS', 'Redux', 'Nodejs', 'MongoDB', 'ExpressJS','React Native','SCSS','HTML'],
     }
 
 
