@@ -13,6 +13,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 data: TemplateDummyData[action.payload],
                 template: action.payload
             }
+        case 'MODIFY_DATA':
+            return{
+                ...state,
+                data: action.payload
+            }
         default:
             return state;
     }

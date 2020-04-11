@@ -27,7 +27,7 @@ const Euphony = (props) => {
                     {
                         education.map((obj,index)=>{
                             return(
-                                <div className="Euphony--BodyEducationContent">
+                                <div key={index} className="Euphony--BodyEducationContent">
                                     <p className="Euphony--BodyEducationContentYear">{obj[2][0]}</p>
                                     <div className="Euphony--BodyEducationContentCollege">
                                         <h2 className="Euphony--BodyEducationContentCollegeName">{obj[0]}</h2>    
