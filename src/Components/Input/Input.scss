@@ -1,0 +1,27 @@
+.Input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+
+    .Input--Label{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #909090;
+        padding-bottom: 1rem;
+    }
+
+    .Input--Text{
+        font-family: 'Raleway', sans-serif;
+        outline: 0;
+        background: #edf2f7;
+        width: 100%;
+        border: 0;
+        margin-bottom: 3rem;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+}

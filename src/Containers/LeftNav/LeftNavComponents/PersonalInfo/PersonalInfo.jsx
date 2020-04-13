@@ -19,13 +19,13 @@ class PersonalInfo extends React.Component{
     render(){
         return(
             <div className="PersonalInfo">
-                <Input changed={event => this.onChangeHandler(event,"Name")} type="text" placeholder="Name" />
-                <Input changed={event => this.onChangeHandler(event,"Pos")} type="text" placeholder="Position" />
-                <Input changed={event => this.onChangeHandler(event,"About")} type="textarea" placeholder="About Yourself" row="8" col="40" />
-                <Input changed={event => this.onChangeHandler(event,"Mobile")} type="text" placeholder="Mobile Number" />
-                <Input changed={event => this.onChangeHandler(event,"Email")} type="text" placeholder="Email" />
-                <Input changed={event => this.onChangeHandler(event,"Website")} type="text" placeholder="Website" />
-                <Input changed={event => this.onChangeHandler(event,"Address")} type="text" placeholder="Address" />
+                <Input label="Name" changed={event => this.onChangeHandler(event,"Name")} type="text" placeholder="Name" />
+                <Input label="Position" changed={event => this.onChangeHandler(event,"Pos")} type="text" placeholder="Position" />
+                <Input label="About Yourself" changed={event => this.onChangeHandler(event,"About")} type="textarea" placeholder="About Yourself" row="8" col="40" />
+                <Input label="Mobile" changed={event => this.onChangeHandler(event,"Mobile")} type="text" placeholder="Mobile Number" />
+                <Input label="Email" changed={event => this.onChangeHandler(event,"Email")} type="text" placeholder="Email" />
+                <Input label="Website" changed={event => this.onChangeHandler(event,"Website")} type="text" placeholder="Website" />
+                <Input label="Address" changed={event => this.onChangeHandler(event,"Address")} type="text" placeholder="Address" />
             </div>
         )
     }

@@ -1,0 +1,12 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PersonalInfo{
+    height: 100vh;
+    width: 22vw;
+    flex-direction: column;
+    @include flexCenter;    
+}
