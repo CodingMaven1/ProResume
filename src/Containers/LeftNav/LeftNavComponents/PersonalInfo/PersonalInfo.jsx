@@ -21,7 +21,7 @@ class PersonalInfo extends React.Component{
             <div className="PersonalInfo">
                 <Input changed={event => this.onChangeHandler(event,"Name")} type="text" placeholder="Name" />
                 <Input changed={event => this.onChangeHandler(event,"Pos")} type="text" placeholder="Position" />
-                <Input changed={event => this.onChangeHandler(event,"About")} type="textarea" placeholder="About Yourself" row="8" col="30" />
+                <Input changed={event => this.onChangeHandler(event,"About")} type="textarea" placeholder="About Yourself" row="8" col="40" />
                 <Input changed={event => this.onChangeHandler(event,"Mobile")} type="text" placeholder="Mobile Number" />
                 <Input changed={event => this.onChangeHandler(event,"Email")} type="text" placeholder="Email" />
                 <Input changed={event => this.onChangeHandler(event,"Website")} type="text" placeholder="Website" />
