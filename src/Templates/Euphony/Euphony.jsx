@@ -3,17 +3,17 @@ import React from "react";
 import './Euphony.scss';
 
 const Euphony = (props) => {
-    let {name,pos,about,contact,careerHistory,education,skills} = props;
+    let {name,pos,about,Mobile,Email,Website,Address,careerHistory,education,skills} = props;
     return(
         <div className="Euphony">
             <div className="Euphony--Header">
                 <h1 className="Euphony--HeaderName">{name}</h1>
                 <h2 className="Euphony--HeaderPos">{pos}</h2>
                 <div className="Euphony--HeaderContact">
-                    <h2 className="Euphony--HeaderContactTitle">{contact.Mobile}</h2>
-                    <h2 className="Euphony--HeaderContactTitle">  {contact.Email}</h2>
-                    <h2 className="Euphony--HeaderContactTitle">  {contact.Website}</h2>
-                    <h2 className="Euphony--HeaderContactTitle"> {contact.Address}</h2>
+                    <h2 className="Euphony--HeaderContactTitle">{Mobile}</h2>
+                    <h2 className="Euphony--HeaderContactTitle">  {Email}</h2>
+                    <h2 className="Euphony--HeaderContactTitle">  {Website}</h2>
+                    <h2 className="Euphony--HeaderContactTitle"> {Address}</h2>
                 </div>
             </div>
             <div className="Euphony--Body">

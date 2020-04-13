@@ -3,7 +3,7 @@ import Dp from '../../Assets/profile.jpg';
 import './Satiny.scss';
 
 const Satiny = (props) => {
-    let {name,pos,about,achievements,contact,careerHistory,education,skills} = props;
+    let {name,pos,about,achievements,Mobile,Email,Website,Address,careerHistory,education,skills} = props;
     console.log(props);
     return(
         <div className="Satiny">
@@ -29,10 +29,10 @@ const Satiny = (props) => {
                 </div>
                 <div className="Satiny--LeftContact">
                     <h1 className="Satiny--LeftTitle">Contact Details</h1>
-                    <p className="Satiny--LeftPara">Mobile: {contact.Mobile}</p>
-                    <p className="Satiny--LeftPara">Email: {contact.Email}</p>
-                    <p className="Satiny--LeftPara">Website: {contact.Website}</p>
-                    <p className="Satiny--LeftPara">Address: {contact.Address}</p>
+                    <p className="Satiny--LeftPara">Mobile: {Mobile}</p>
+                    <p className="Satiny--LeftPara">Email: {Email}</p>
+                    <p className="Satiny--LeftPara">Website: {Website}</p>
+                    <p className="Satiny--LeftPara">Address: {Address}</p>
 
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
+import {updateValue} from './user-utils';
 
 const INITIAL_STATE = {
     data: TemplateDummyData["Satiny"],
@@ -16,7 +17,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case 'MODIFY_DATA':
             return{
                 ...state,
-                data: action.payload
+                data: updateValue(state.data,action.payload)
             }
         default:
             return state;

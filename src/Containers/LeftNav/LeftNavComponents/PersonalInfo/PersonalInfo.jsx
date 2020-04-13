@@ -6,18 +6,26 @@ import './PersonalInfo.scss';
 
 class PersonalInfo extends React.Component{
 
-    onChangeHandler = (e) => {
+    onChangeHandler = (e,type) => {
         let value = e.target.value;
-        let {modifyData, ...dataObject} = this.props;
-        dataObject.Name = value;
-        // modifyData({...dataObject});
+        let {modifyData} = this.props;
+        let typewithdata = {
+            type: type,
+            val: value
+        }
+        modifyData(typewithdata);
     }
 
     render(){
-        let {Name} = this.props;
         return(
             <div className="PersonalInfo">
-                <Input changed={event => this.onChangeHandler(event)} value={Name} type="text" placeholder="Name" />
+                <Input changed={event => this.onChangeHandler(event,"Name")} type="text" placeholder="Name" />
+                <Input changed={event => this.onChangeHandler(event,"Pos")} type="text" placeholder="Position" />
+                <Input changed={event => this.onChangeHandler(event,"About")} type="textarea" placeholder="About Yourself" row="8" col="30" />
+                <Input changed={event => this.onChangeHandler(event,"Mobile")} type="text" placeholder="Mobile Number" />
+                <Input changed={event => this.onChangeHandler(event,"Email")} type="text" placeholder="Email" />
+                <Input changed={event => this.onChangeHandler(event,"Website")} type="text" placeholder="Website" />
+                <Input changed={event => this.onChangeHandler(event,"Address")} type="text" placeholder="Address" />
             </div>
         )
     }
