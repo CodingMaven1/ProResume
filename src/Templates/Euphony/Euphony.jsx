@@ -3,7 +3,7 @@ import React from "react";
 import './Euphony.scss';
 
 const Euphony = (props) => {
-    let {name,pos,about,Mobile,Email,Website,Address,careerHistory,education,skills} = props;
+    let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills} = props;
     return(
         <div className="Euphony">
             <div className="Euphony--Header">
@@ -43,19 +43,14 @@ const Euphony = (props) => {
                     <div className="Euphony--BodyCareer">
                         <div className="Euphony--BodyTitle">Work Experience</div>
                         {
-                            careerHistory.map((opt,idx) => {
+                            CareerHistory.map((opt,idx) => {
                                 return(
                                     <div key={idx} className="Euphony--BodyCareerInfo">
-                                        <h1 className="Euphony--BodyCareerInfoTitle">{opt[1]}</h1>
-                                        <h2 className="Euphony--BodyCareerInfoSubtitle">{opt[0]}</h2>
+                                        <h1 className="Euphony--BodyCareerInfoTitle">{opt.Place}</h1>
+                                        <h2 className="Euphony--BodyCareerInfoSubtitle">{opt.Post}</h2>
                                         <div className="Euphony--BodyCareerInfoDetail">
-                                            {
-                                                opt[2].map((option,index) => {
-                                                    return(
-                                                        <p key={index} className="Euphony--BodyCareerInfoHeading">{option}</p>  
-                                                    )
-                                                })
-                                            }
+                                        <p className="Euphony--BodyCareerInfoHeading">{opt.Details.First}</p>  
+                                        <p className="Euphony--BodyCareerInfoHeading">{opt.Details.Second}</p>  
                                         </div>
                                     </div>
                                 )

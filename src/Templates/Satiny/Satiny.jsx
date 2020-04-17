@@ -3,7 +3,7 @@ import Dp from '../../Assets/profile.jpg';
 import './Satiny.scss';
 
 const Satiny = (props) => {
-    let {name,pos,about,achievements,Mobile,Email,Website,Address,careerHistory,education,skills} = props;
+    let {name,pos,about,achievements,Mobile,Email,Website,Address,CareerHistory,education,skills} = props;
     console.log(props);
     return(
         <div className="Satiny">
@@ -40,18 +40,13 @@ const Satiny = (props) => {
                 <div className="Satiny--RightCareer">
                     <h1 className="Satiny--RightTitle">Career History</h1>
                         {
-                            careerHistory.map((obj,index) => {
+                            CareerHistory.map((obj,index) => {
                                 return(
                                     <div key={index}>
-                                        <h1 className="Satiny--RightSubtitle">{obj[0]}</h1>
-                                        <h1 className="Satiny--RightDuration">{obj[1]}</h1>
-                                        {
-                                            obj[2].map((item,idx)=>{
-                                                return(
-                                                <p key={idx} className="Satiny--RightPara">{item}</p>
-                                                )
-                                            })
-                                        }
+                                        <h1 className="Satiny--RightSubtitle">{obj.Post}</h1>
+                                        <h1 className="Satiny--RightDuration">{obj.Place}</h1>
+                                        <p className="Satiny--RightPara">{obj.Details.First}</p>
+                                        <p className="Satiny--RightPara">{obj.Details.Second}</p>
                                     </div>
                                 )
                             })

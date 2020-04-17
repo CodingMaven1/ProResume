@@ -31,12 +31,8 @@ class PersonalInfo extends React.Component{
     }
 }
 
-const mapStateToProps = state => ({
-    dataObject: state.user.data
-})
-
 const mapDispatchToProps = dispatch => ({
     modifyData: data => dispatch(modifyData(data))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalInfo);
+export default connect(null, mapDispatchToProps)(PersonalInfo);
