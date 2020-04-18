@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from 'react-redux';
+
 import Satiny from '../../Templates/Satiny/Satiny';
 import Euphony from '../../Templates/Euphony/Euphony';
+
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {

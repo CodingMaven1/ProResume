@@ -1,9 +1,14 @@
 import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
-import {updateValue} from './user-utils';
+import {updateValue, updateView} from './user-utils';
 
 const INITIAL_STATE = {
     data: TemplateDummyData["Satiny"],
-    template: "Satiny"
+    template: "Satiny",
+    view: {
+        PersonalInfo: true,
+        Career: false,
+        Education: false
+    }
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -18,6 +23,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 data: updateValue(state.data,action.payload)
+            }
+        case 'NAVIGATE_DATA':
+            return{
+                ...state,
+                view: updateView(state.view, action.payload)
             }
         default:
             return state;

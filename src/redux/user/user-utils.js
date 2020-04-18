@@ -25,3 +25,14 @@ export const updateValue = (data, updatedvalue) => {
     }
     return {...updatedData};
 }
+
+export const updateView = (previousview,type) => {
+    let newview = previousview;
+    for(let i of Object.keys(previousview)){
+        newview[i] = false
+    }
+
+    newview[type] = true
+
+    return {...newview}
+}
