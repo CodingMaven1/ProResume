@@ -22,9 +22,15 @@ const TemplateDummyData = {
                 First: 'Managed script for all rehearsals and dispensed line notes to actors.',
                 Second: 'Reset stage after every rehearsal and performance.'
             }}],
-        Education: [['University of Euanco','Bachelor of Arts in Theater Arts, 2015',['Attended from 2011 to 2015','Graduated Cum Laude',
-        'Public Relations Officer of the Student Government, 2015', "Dean's Lister for SY 2013 to 2014"]],['Dedeuay High School','Batch Valedictorian, Class of 2011',
-        ['GPA of 4.0','Academic Excellence in English, Geometry, Math','Vice President of the Student Council, 2010',"Managing Editor for The Dedeuay Bulletin"]]],
+        Education: [{
+            Name: 'University of Euanco',
+            Degree: 'Bachelor of Arts in Theater Arts, 2015',
+            Duration: 'Attended from 2011 to 2015'
+        },{
+            Name:'Dedeuay High School',
+            Degree:'Batch Valedictorian, Class of 2011',
+            Duration: 'Attended from 2004-2010'
+        }],
         Skills: ["Familiar with, audio, lighting, dressing rooms, scripting, and music production.",'Managing live performances.','Good organization and people skills.'],
     },
 
@@ -48,7 +54,15 @@ const TemplateDummyData = {
             Details: {
                 First: 'Designed and developed branding concepts.',
                 Second: 'Was involved in creating promotional materials for various campaigns'}} ],
-        Education: [['University of the Arts London','Graphic Design degree',['2012-2014']],['Norwich University of Arts','Fine Arts Degree',['2010-2012']]],
+        Education: [{
+            Name: 'University of the Arts London',
+            Degree: 'Graphic Design degree',
+            Duration: '2012-2014'
+        },{
+            Name: 'Norwich University of Arts',
+            Degree: 'Fine Arts Degree',
+            Duration: '2010-2012'
+        }],
         Skills: ['ReactJS', 'Redux', 'Nodejs', 'MongoDB', 'ExpressJS','React Native','SCSS','HTML'],
     }
 

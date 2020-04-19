@@ -59,15 +59,9 @@ const Satiny = (props) => {
                             education.map((obj,index) => {
                                 return(
                                     <div key={index}>
-                                        <h1 className="Satiny--RightSubtitle">{obj[0]}</h1>
-                                        <h1 className="Satiny--RightDuration">{obj[1]}</h1>
-                                        {
-                                            obj[2].map((item,idx)=>{
-                                                return(
-                                                <p key={idx} className="Satiny--RightPara">{item}</p>
-                                                )
-                                            })
-                                        }
+                                        <h1 className="Satiny--RightSubtitle">{obj.Name}</h1>
+                                        <h1 className="Satiny--RightDuration">{obj.Degree}</h1>
+                                        <p className="Satiny--RightPara">{obj.Duration}</p>
                                     </div>
                                 )
                             })
