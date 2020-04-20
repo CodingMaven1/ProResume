@@ -36,3 +36,23 @@ export const updateView = (previousview,type) => {
 
     return {...newview}
 }
+
+export const increaseRatingUtil = (previousData, index) => {
+    let modifyData = previousData;
+    let skills = modifyData.Skills;
+    let value = skills[parseInt(index)].value;
+    value = value + 1;
+    skills[parseInt(index)].value = value;
+    modifyData.Skills = skills;
+    return {...modifyData}
+}
+
+export const decreaseRatingUtil = (previousData, index) => {
+    let modifyData = previousData;
+    let skills = modifyData.Skills;
+    let value = skills[parseInt(index)].value;
+    value = value - 1;
+    skills[parseInt(index)].value = value;
+    modifyData.Skills = skills;
+    return {...modifyData}
+}

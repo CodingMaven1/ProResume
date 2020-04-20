@@ -1,5 +1,6 @@
 import React from "react";
 import Dp from '../../Assets/profile.jpg';
+import star from '../../Assets/favourite.png'
 import './Satiny.scss';
 
 const Satiny = (props) => {
@@ -71,10 +72,31 @@ const Satiny = (props) => {
                 <div className="Satiny--RightSkills">
                     <h1 className="Satiny--RightTitle">Skills</h1>
                     {
-                        skills.map((obj,index) => {
-                            return(
-                                <p key={index} className="Satiny--RightPara">{obj}</p>
-                            )
+                        skills.map((opt,idx) => {
+                            let value = opt.value;
+                            let valarr= []
+                            if(value > 5){
+                                value = 5
+                            }
+                            else if(value < 0){
+                                value = 0
+                            }
+                            for(let q = 0; q<value; q++){
+                                valarr[q] = q
+                            }
+                            let skill = <div className="Satiny--Skills">
+                                <p className="Satiny--RightPara" key={idx}>{opt.key}</p>
+                                <div className="Satiny--SkillsStarContainer">
+                                    {
+                                        valarr.map(obj => {
+                                            return(
+                                                <img src={star} alt="star" className="Satiny--SkillsStar" />
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            return skill;
                         })
                     }
                 </div>

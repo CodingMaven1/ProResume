@@ -12,3 +12,13 @@ export const navigateData = data => ({
     type: 'NAVIGATE_DATA',
     payload: data
 })
+
+export const increaseRating = data => ({
+    type: 'RATING_INCREASE',
+    payload: data
+})
+
+export const decreaseRating = data => ({
+    type: 'RATING_DECREASE',
+    payload: data
+})

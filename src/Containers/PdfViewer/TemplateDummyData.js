@@ -31,7 +31,7 @@ const TemplateDummyData = {
             Degree:'Batch Valedictorian, Class of 2011',
             Duration: 'Attended from 2004-2010'
         }],
-        Skills: ["Familiar with, audio, lighting, dressing rooms, scripting, and music production.",'Managing live performances.','Good organization and people skills.'],
+        Skills: [{key: "Audio", value: 3},{key: "Lighting", value: 2}, {key: "scripting", value:4}, {key:"Music Production", value:3},{ key:'Management', value: 4},{ key: 'Organization', value: 3}],
     },
 
     Euphony: {
@@ -63,7 +63,7 @@ const TemplateDummyData = {
             Degree: 'Fine Arts Degree',
             Duration: '2010-2012'
         }],
-        Skills: ['ReactJS', 'Redux', 'Nodejs', 'MongoDB', 'ExpressJS','React Native','SCSS','HTML'],
+        Skills: [{key: "React Js", value: 4}, {key: "Node Js", value:3}, {key:"Redux", value:4},{ key:'MongoDB', value: 3},{ key: 'Express Js', value: 3},{ key: 'SCSS', value: 5}],
     }
 
 

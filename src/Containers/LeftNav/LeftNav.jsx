@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import PersonalInfo from './LeftNavComponents/PersonalInfo/PersonalInfo';
 import Career from './LeftNavComponents/Career/Career';
 import Education from './LeftNavComponents/Education/Education';
+import Skills from './LeftNavComponents/Skills/Skills';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,6 +40,9 @@ class LeftNav extends React.Component{
         else if(view.Education === true){
             inputFields = <Education />
         }
+        else if(view.Skills === true){
+            inputFields = <Skills />
+        }
 
         return(
             <div className="LeftNav">
@@ -46,6 +50,7 @@ class LeftNav extends React.Component{
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"PersonalInfo")}>Personal Information</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Career")}>Career</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Education")}>Education</h1>
+                    <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Skills")}>Skills</h1>
                 </Slider>
                 {inputFields}
             </div>

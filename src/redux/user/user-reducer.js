@@ -1,5 +1,5 @@
 import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
-import {updateValue, updateView} from './user-utils';
+import {updateValue, updateView, increaseRatingUtil, decreaseRatingUtil} from './user-utils';
 
 const INITIAL_STATE = {
     data: TemplateDummyData["Satiny"],
@@ -28,6 +28,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 view: updateView(state.view, action.payload)
+            }
+        case 'RATING_INCREASE':
+            return{
+                ...state,
+                data: increaseRatingUtil(state.data, action.payload)
+            }
+        case 'RATING_DECREASE':
+            return{
+                ...state,
+                data: decreaseRatingUtil(state.data, action.payload)
             }
         default:
             return state;

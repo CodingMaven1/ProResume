@@ -98,5 +98,20 @@
             padding-bottom: 1rem;
             padding-right: 1rem;
         }
+
+        .Satiny--Skills{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .Satiny--SkillsStarContainer{
+                padding-right: 3.5rem;
+
+                .Satiny--SkillsStar{
+                    height: 2vh;
+                }
+            }
+        }
     }
 }

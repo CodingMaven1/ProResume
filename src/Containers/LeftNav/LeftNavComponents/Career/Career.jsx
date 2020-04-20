@@ -8,12 +8,12 @@ class Career extends React.Component{
 
     onChangeHandler = (e, type) => {
         let value = e.target.value;
-        let {modifyData} = this.props;
+        let {modifyDataFunction} = this.props;
         let typewithdata = {
             type: type,
             val: value
         }
-        modifyData(typewithdata);
+        modifyDataFunction(typewithdata);
     }
     render(){
         return(
@@ -43,7 +43,7 @@ class Career extends React.Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-    modifyData: data => dispatch(modifyData(data))
+    modifyDataFunction: data => dispatch(modifyData(data))
 })
 
 export default connect(null, mapDispatchToProps)(Career);

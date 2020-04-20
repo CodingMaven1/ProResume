@@ -1,5 +1,6 @@
 import React from "react";
 
+import star from '../../Assets/favourite.png';
 import './Euphony.scss';
 
 const Euphony = (props) => {
@@ -62,9 +63,30 @@ const Euphony = (props) => {
                         <div className="Euphony--BodySkillsInfo">
                             {
                                 skills.map((opt,idx) => {
-                                    return(
-                                        <p className="Euphony--BodySkillsInfoTitle" key={idx}>{opt}</p>
-                                    )
+                                    let value = opt.value;
+                                    let valarr= []
+                                    if(value > 5){
+                                        value = 5
+                                    }
+                                    else if(value < 0){
+                                        value = 0
+                                    }
+                                    for(let q = 0; q<value; q++){
+                                        valarr[q] = q
+                                    }
+                                    let skill = <div className="Euphony--Skills">
+                                        <p className="Euphony--BodySkillsInfoTitle" key={idx}>{opt.key}</p>
+                                        <div className="Euphony--SkillsStarContainer">
+                                            {
+                                                valarr.map(obj => {
+                                                    return(
+                                                        <img src={star} alt="star" className="Euphony--SkillsStar" />
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                    return skill;
                                 })
                             }
                         </div>
