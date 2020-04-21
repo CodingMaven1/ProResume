@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {modifyData, increaseRating, decreaseRating} from '../../../../redux/user/user-actions';
+
 import Input from '../../../../Components/Input/Input';
 
 import plus from '../../.././../Assets/plus.svg';
@@ -8,6 +9,10 @@ import minus from '../../../../Assets/minus.svg';
 import './Skills.scss';
 
 class Skills extends React.Component{
+
+    state = {
+        count: 5
+    }
 
     onChangeHandler = (e,type) => {
         let value = e.target.value;
@@ -29,65 +34,56 @@ class Skills extends React.Component{
         decreaseRatingFuntion(idx);
     }
 
+    onInsertFields = (e) => {
+        e.preventDefault();
+        let count = this.state.count;
+        count = count + 1
+        this.setState({count: count})
+    }
+
+    onDeleteFields = (e) => {
+        e.preventDefault();
+        let count = this.state.count;
+        count = count - 1
+        this.setState({count: count})
+    }
+
     render(){
         let {data} = this.props
         let skills = data.Skills;
+        for(let i = 0; i< skills.length; i++){
+            if(skills[i].value > 5){
+                skills[i].value = 5
+            }
+            else if(skills[i].value < 0){
+                skills[i].value = 0
+            }
+        }
+        let arr = []
+        for(let i = 0; i <= this.state.count; i++){
+            arr[i] = i
+        }
         return(
             <div className="Skills">
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 0 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"0")} />
-                        <h2 className="Skills--DivRatingScore">{skills[0].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"0")}/>
-                    </div>
+                {
+                    arr.map(obj => {
+                        let key = "Skills " + obj.toString() + " key"
+                        return(
+                            <div key={obj} className="Skills--Div">
+                                <Input label="Skill" changed={event => this.onChangeHandler(event,key)} type="text" placeholder="Skill" />
+                                <div className="Skills--DivRating">
+                                    <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,obj.toString())} />
+                                    <h2 className="Skills--DivRatingScore">{skills[obj].value}</h2>
+                                    <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,obj.toString())}/>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+                <div className="Skills--AddImgs">
+                    <img src={plus} alt="plus" onClick={event => this.onInsertFields(event)} className="Skills--Add" />
+                    <img src={minus} alt="minus" onClick={event => this.onDeleteFields(event)} className="Skills--Add" />
                 </div>
-
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 1 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"1")} />
-                        <h2 className="Skills--DivRatingScore">{skills[1].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"1")}/>
-                    </div>
-                </div>
-
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 2 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"2")} />
-                        <h2 className="Skills--DivRatingScore">{skills[2].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"2")}/>
-                    </div>
-                </div>
-
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 3 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"3")} />
-                        <h2 className="Skills--DivRatingScore">{skills[3].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"3")}/>
-                    </div>
-                </div>
-
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 4 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"4")} />
-                        <h2 className="Skills--DivRatingScore">{skills[4].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"4")}/>
-                    </div>
-                </div>
-
-                <div className="Skills--Div">
-                    <Input label="Skill" changed={event => this.onChangeHandler(event,"Skills 5 key")} type="text" placeholder="Skill" />
-                    <div className="Skills--DivRating">
-                        <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,"5")} />
-                        <h2 className="Skills--DivRatingScore">{skills[5].value}</h2>
-                        <img src={plus} className="Skills--DivRatingImg" alt="plus" onClick={event => this.onIncreaseHandler(event,"5")}/>
-                    </div>
-                </div>
-
             </div>
         )
     }

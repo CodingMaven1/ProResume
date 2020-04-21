@@ -3,9 +3,15 @@ import {connect} from "react-redux";
 
 import {modifyData} from '../../../../redux/user/user-actions';
 import Input from '../../../../Components/Input/Input';
+
+import plus from '../../../../Assets/plus.svg';
+import minus from '../../../../Assets/minus.svg';
 import './Education.scss';
 
 class Education extends React.Component{
+    state = {
+        count : 1
+    }
 
     onChangeHandler = (e, type) => {
         let value = e.target.value;
@@ -17,26 +23,51 @@ class Education extends React.Component{
         modifyDataFunction(typewithdata);
     }
 
+    onInsertFields = (e) => {
+        e.preventDefault();
+        let count = this.state.count;
+        count = count + 1
+        this.setState({count: count})
+    }
+
+    onDeleteFields = (e) => {
+        e.preventDefault();
+        let count = this.state.count;
+        count = count - 1
+        this.setState({count: count})
+    }
+
     render(){
+        let arr = []
+        for(let i = 0; i<= this.state.count; i++){
+            arr[i] = i
+        }
         return(
             <div className="Education">
-                <div className="Education--Details">
-                    <h1 className="Education--Title">Add Education Details:</h1>
-                    <div className="Education--Inputs">
-                        <Input label="College / School" changed={event => this.onChangeHandler(event,"Education 0 Name")} type="text" placeholder="College / School" />
-                        <Input label="Degree" changed={event => this.onChangeHandler(event,"Education 0 Degree")} type="text" placeholder="Degree" />
-                        <Input label="Duration" changed={event => this.onChangeHandler(event,"Education 0 Duration")} type="text" placeholder="Duration" />
-                    </div>
+                {
+                    arr.map(obj => {
+                        let name = "Education " + obj.toString() + " Name"
+                        let degree = "Education " + obj.toString() + " Degree"
+                        let duration = "Education " + obj.toString() + " Duration"
+                        console.log(name)
+                        return(
+                            <div key={obj} className="Education--Details">
+                                <h1 className="Education--Title">Add Education Details:</h1>
+                                <div className="Education--Inputs">
+                                    <Input label="College / School" changed={event => this.onChangeHandler(event,name)} type="text" placeholder="College / School" />
+                                    <Input label="Degree" changed={event => this.onChangeHandler(event,degree)} type="text" placeholder="Degree" />
+                                    <Input label="Duration" changed={event => this.onChangeHandler(event,duration)} type="text" placeholder="Duration" />
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+
+                <div className="Education--AddImgs">
+                    <img src={plus} alt="plus" onClick={event => this.onInsertFields(event)} className="Education--Add" />
+                    <img src={minus} alt="minus" onClick={event => this.onDeleteFields(event)} className="Education--Add" />
                 </div>
 
-                <div className="Education--Details">
-                    <h1 className="Education--Title">Add Education Details:</h1>
-                    <div className="Education--Inputs">
-                        <Input label="College / School" changed={event => this.onChangeHandler(event,"Education 1 Name")} type="text" placeholder="College / School" />
-                        <Input label="Degree" changed={event => this.onChangeHandler(event,"Education 1 Degree")} type="text" placeholder="Degree" />
-                        <Input label="Duration" changed={event => this.onChangeHandler(event,"Education 1 Duration")} type="text" placeholder="Duration" />
-                    </div>
-                </div>
             </div>
         )
     }

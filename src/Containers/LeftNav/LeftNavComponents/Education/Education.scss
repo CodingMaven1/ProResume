@@ -27,4 +27,17 @@
             align-items: center;
         }
     }
+
+    .Education--AddImgs{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+
+        .Education--Add{
+            height: 4vh;
+            width: auto;
+            margin-bottom: 2rem;
+            cursor: pointer;
+        }
+    }
 }

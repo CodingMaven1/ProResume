@@ -34,4 +34,17 @@
             }
         }
     }
+
+    .Skills--AddImgs{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+
+        .Skills--Add{
+            height: 4vh;
+            width: auto;
+            margin-bottom: 2rem;
+            cursor: pointer;
+        }
+    }
 }
