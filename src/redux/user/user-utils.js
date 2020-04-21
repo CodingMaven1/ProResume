@@ -56,3 +56,39 @@ export const decreaseRatingUtil = (previousData, index) => {
     modifyData.Skills = skills;
     return {...modifyData}
 }
+
+export const addDummyDataUtil = (previousData, type) => {
+    let newData = previousData
+    let obj;
+    let typeToPush = newData[type]
+    if(type === "CareerHistory"){
+        obj = {
+            Post: '',
+            Place: '',
+            Details: {
+                First: '',
+                Second: ''
+            }}
+    }
+    else if(type === "Education"){
+        obj = {
+            Name: '',
+            Degree: '',
+            Duration: ''
+        }
+    }
+    else if(type === "Skills"){
+        obj = {key: "", value: 0}
+    }
+    typeToPush.push(obj)
+    newData.type = typeToPush;
+    return {...newData}
+}
+
+export const deleteDummyDataUtil = (previousData, type) => {
+    let newData = previousData
+    let typeToPush = newData[type]
+    typeToPush.pop()
+    newData.type = typeToPush;
+    return {...newData}
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import {modifyData} from '../../../../redux/user/user-actions';
+import {modifyData, deleteDummyData, addDummyData} from '../../../../redux/user/user-actions';
 import Input from '../../../../Components/Input/Input';
 
 import plus from '../../../../Assets/plus.svg';
@@ -28,6 +28,8 @@ class Education extends React.Component{
         let count = this.state.count;
         count = count + 1
         this.setState({count: count})
+        let {addDummyDataFunction} = this.props;
+        addDummyDataFunction("Education")
     }
 
     onDeleteFields = (e) => {
@@ -35,6 +37,8 @@ class Education extends React.Component{
         let count = this.state.count;
         count = count - 1
         this.setState({count: count})
+        let {deleteDummyDataFunction} = this.props
+        deleteDummyDataFunction("Education")
     }
 
     render(){
@@ -74,7 +78,9 @@ class Education extends React.Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-    modifyDataFunction: data => dispatch(modifyData(data))
+    modifyDataFunction: data => dispatch(modifyData(data)),
+    addDummyDataFunction: type => dispatch(addDummyData(type)),
+    deleteDummyDataFunction: type => dispatch(deleteDummyData(type))
 })
 
 export default connect(null, mapDispatchToProps)(Education);

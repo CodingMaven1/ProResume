@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {modifyData, increaseRating, decreaseRating} from '../../../../redux/user/user-actions';
+import {modifyData, increaseRating, decreaseRating, addDummyData, deleteDummyData} from '../../../../redux/user/user-actions';
 
 import Input from '../../../../Components/Input/Input';
 
@@ -39,6 +39,8 @@ class Skills extends React.Component{
         let count = this.state.count;
         count = count + 1
         this.setState({count: count})
+        let {addDummyDataFunction} = this.props;
+        addDummyDataFunction("Skills")
     }
 
     onDeleteFields = (e) => {
@@ -46,6 +48,8 @@ class Skills extends React.Component{
         let count = this.state.count;
         count = count - 1
         this.setState({count: count})
+        let {deleteDummyDataFunction} = this.props
+        deleteDummyDataFunction("Skills")
     }
 
     render(){
@@ -92,7 +96,9 @@ class Skills extends React.Component{
 const mapDispatchToProps = dispatch => ({
     modifyDataFunction:  data => dispatch(modifyData(data)),
     increaseRatingFunction: value => dispatch(increaseRating(value)),
-    decreaseRatingFuntion: value => dispatch(decreaseRating(value))
+    decreaseRatingFuntion: value => dispatch(decreaseRating(value)),
+    addDummyDataFunction: type => dispatch(addDummyData(type)),
+    deleteDummyDataFunction: type => dispatch(deleteDummyData(type))
 })
 
 const mapStateToProps = state => ({

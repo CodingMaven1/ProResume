@@ -22,3 +22,13 @@ export const decreaseRating = data => ({
     type: 'RATING_DECREASE',
     payload: data
 })
+
+export const addDummyData = data => ({
+    type: "ADD_DUMMY_DATA",
+    payload: data
+})
+
+export const deleteDummyData = data => ({
+    type: "DELETE_DUMMY_DATA",
+    payload: data
+})
