@@ -69,7 +69,7 @@ class Skills extends React.Component{
                         let key = "Skills " + obj.toString() + " key"
                         return(
                             <div key={obj} className="Skills--Div">
-                                <Input label="Skill" changed={event => this.onChangeHandler(event,key)} type="text" placeholder={skills[obj].key} />
+                                <Input label="Skill" value={skills[obj].key} changed={event => this.onChangeHandler(event,key)} type="text" placeholder={skills[obj].key} />
                                 <div className="Skills--DivRating">
                                     <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,obj.toString())} />
                                     <h2 className="Skills--DivRatingScore">{skills[obj].value}</h2>

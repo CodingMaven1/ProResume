@@ -33,7 +33,8 @@ class Career extends React.Component{
     }
 
     render(){
-        let {countobj} = this.props;
+        let {countobj, data} = this.props;
+        let career = data["CareerHistory"];
         let count = countobj["CareerHistory"]
         let arr = []
         for(let i = 0; i<= count; i++){
@@ -51,10 +52,10 @@ class Career extends React.Component{
                             <div key={obj} className="Career--Experience">
                                 <h1 className="Career--Title">Add Work Experience:</h1>
                                 <div className="Career--Inputs">
-                                    <Input label="Post" changed={event => this.onChangeHandler(event, post)} type="text" placeholder="Post" />
-                                    <Input label="Place" changed={event => this.onChangeHandler(event, place)} type="text" placeholder="Place" />
-                                    <Input label="Work" changed={event => this.onChangeHandler(event,first)} type="textarea" placeholder="Work Details" row="2" col="40" />
-                                    <Input label="Work" changed={event => this.onChangeHandler(event,second)} type="textarea" placeholder="Work Details" row="2" col="40" />
+                                    <Input label="Post" value={career[obj].Post} changed={event => this.onChangeHandler(event, post)} type="text" placeholder={career[obj].Post} />
+                                    <Input label="Place" value={career[obj].Place} changed={event => this.onChangeHandler(event, place)} type="text" placeholder={career[obj].Place} />
+                                    <Input label="Work" value={career[obj].Details["First"]} changed={event => this.onChangeHandler(event,first)} type="textarea" placeholder={career[obj].Details["First"]} row="2" col="40" />
+                                    <Input label="Work" value={career[obj].Details["Second"]} changed={event => this.onChangeHandler(event,second)} type="textarea" placeholder={career[obj].Details["Second"]} row="2" col="40" />
                                 </div>
                             </div>
                         )
@@ -76,6 +77,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
+    data: state.user.data,
     countobj: state.user.count
 })
 

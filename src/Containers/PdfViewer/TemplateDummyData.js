@@ -30,7 +30,7 @@ const TemplateDummyData = {
             Degree:'Batch Valedictorian, Class of 2011',
             Duration: 'Attended from 2004-2010'
         }],
-        Skills: [{key: "Audio", value: 3},{key: "Lighting", value: 2}, {key: "scripting", value:4}, {key:"Music Production", value:3},{ key:'Management', value: 4},{ key: 'Organization', value: 3}],
+        Skills: [{key: "Audio", value: 3},{key: "Lighting", value: 2}, {key: "Scripting", value:4}, {key:"Music Production", value:3},{ key:'Management', value: 4},{ key: 'Organization', value: 3}],
     },
 
     Euphony: {

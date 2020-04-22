@@ -33,7 +33,8 @@ class Education extends React.Component{
     }
 
     render(){
-        let {countobj} = this.props;
+        let {countobj, data} = this.props;
+        let Education = data["Education"]
         let count = countobj["Education"]
         let arr = []
         for(let i = 0; i<= count; i++){
@@ -51,9 +52,9 @@ class Education extends React.Component{
                             <div key={obj} className="Education--Details">
                                 <h1 className="Education--Title">Add Education Details:</h1>
                                 <div className="Education--Inputs">
-                                    <Input label="College / School" changed={event => this.onChangeHandler(event,name)} type="text" placeholder="College / School" />
-                                    <Input label="Degree" changed={event => this.onChangeHandler(event,degree)} type="text" placeholder="Degree" />
-                                    <Input label="Duration" changed={event => this.onChangeHandler(event,duration)} type="text" placeholder="Duration" />
+                                    <Input label="College / School" value={Education[obj].Name}  changed={event => this.onChangeHandler(event,name)} type="text" placeholder={Education[obj].Name} />
+                                    <Input label="Degree" value={Education[obj].Degree}  changed={event => this.onChangeHandler(event,degree)} type="text" placeholder={Education[obj].Degree} />
+                                    <Input label="Duration" value={Education[obj].Duration} changed={event => this.onChangeHandler(event,duration)} type="text" placeholder={Education[obj].Duration} />
                                 </div>
                             </div>
                         )
@@ -77,6 +78,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
+    data: state.user.data,
     countobj: state.user.count
 })
 
