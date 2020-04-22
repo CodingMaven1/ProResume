@@ -4,7 +4,7 @@ import star from '../../Assets/favourite.png'
 import './Satiny.scss';
 
 const Satiny = (props) => {
-    let {name,pos,about,achievements,Mobile,Email,Website,Address,CareerHistory,education,skills} = props;
+    let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills} = props;
     console.log(props);
     return(
         <div className="Satiny">
@@ -17,16 +17,6 @@ const Satiny = (props) => {
                 <div className="Satiny--LeftAbout">
                     <h1 className="Satiny--LeftTitle">Profile Summary</h1>
                     <p className="Satiny--LeftPara">{about}</p>
-                </div>
-                <div className="Satiny--LeftAchievements">
-                    <h1 className="Satiny--LeftTitle">Career Achievements</h1>
-                    {
-                        achievements.map((obj,index) => {
-                            return(
-                                <p key={index} className="Satiny--LeftPara">{obj}</p>
-                            )
-                        })
-                    }
                 </div>
                 <div className="Satiny--LeftContact">
                     <h1 className="Satiny--LeftTitle">Contact Details</h1>

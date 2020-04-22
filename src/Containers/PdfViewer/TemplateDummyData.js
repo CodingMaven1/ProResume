@@ -4,7 +4,6 @@ const TemplateDummyData = {
         Name: 'Henrietta Mitchell',
         Pos: 'Stage Manager',
         About: 'I am a stage manager with knowledge of the dynamics of live entertainment. I ensure that each show I handle runs smoothly from rehearsals to closing night.',
-        Achievements: ['Named "Employee of the Month" 4 times by Lengree Theatrical.','Profiled in the May 2016 issue of Saidai Magazine.','Worked on the Toky Award-winning play, "AIA".'],
         Mobile : '(123) 456-7890',
         Email: 'hello@reallygreatsite.com',
         Website: 'www.reallygreatsite.com',

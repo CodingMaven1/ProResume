@@ -12,7 +12,7 @@ class PdfViewer extends React.Component {
         let {data, template}  = this.props;
         let userTemplate;
         if(template === "Satiny"){
-            userTemplate =  <Satiny name={data.Name} pos={data.Pos} about={data.About} achievements={data.Achievements} 
+            userTemplate =  <Satiny name={data.Name} pos={data.Pos} about={data.About}
                             Mobile={data.Mobile} Email={data.Email} Address={data.Address} Website={data.Website} CareerHistory={data.CareerHistory} 
                             education={data.Education} skills={data.Skills} />
         }

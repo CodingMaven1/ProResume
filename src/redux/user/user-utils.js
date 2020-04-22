@@ -1,3 +1,5 @@
+import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
+
 export const updateValue = (data, updatedvalue) => {
     let type = updatedvalue.type
     let typeArr = type.split(" ")
@@ -62,20 +64,10 @@ export const addDummyDataUtil = (previousData, type) => {
     let obj;
     let typeToPush = newData[type]
     if(type === "CareerHistory"){
-        obj = {
-            Post: '',
-            Place: '',
-            Details: {
-                First: '',
-                Second: ''
-            }}
+        obj = {Post: '', Place: '', Details: {First: '', Second: ''}}
     }
     else if(type === "Education"){
-        obj = {
-            Name: '',
-            Degree: '',
-            Duration: ''
-        }
+        obj = {Name: '', Degree: '',Duration: ''}
     }
     else if(type === "Skills"){
         obj = {key: "", value: 0}
@@ -90,5 +82,54 @@ export const deleteDummyDataUtil = (previousData, type) => {
     let typeToPush = newData[type]
     typeToPush.pop()
     newData.type = typeToPush;
+    return {...newData}
+}
+
+export const changeTemplate = (previousData, type) => {
+    let newData = TemplateDummyData[type]
+    if(newData["CareerHistory"].length !== previousData["CareerHistory"].length){
+        let obj = {Post: '', Place: '', Details: {First: '', Second: ''}}
+        let difference = previousData["CareerHistory"].length - newData["CareerHistory"].length
+        if(difference >= 0){
+            for(let i = 0; i<difference; i++){
+                newData["CareerHistory"].push(obj)
+            }
+        }
+        else if(difference < 0){
+            for(let i = 0; i<Math.abs(difference); i++){
+                newData["CareerHistory"].pop()
+            }
+        }
+    }
+    if(newData["Education"].length !== previousData["Education"].length){
+        let obj = {Name: '', Degree: '',Duration: ''}
+        let difference = previousData["Education"].length - newData["Education"].length
+        if(difference >= 0){
+            for(let i = 0; i<difference; i++){
+                newData["Education"].push(obj)
+            }
+        }
+        else if(difference < 0){
+            for(let i = 0; i<Math.abs(difference); i++){
+                newData["Education"].pop()
+            }
+        }
+    }
+    if(newData["Skills"].length !== previousData["Skills"].length){
+        let obj = {key: "", value: 0}
+        let difference = previousData["Skills"].length - newData["Skills"].length
+        if(difference >= 0){
+            for(let i = 0; i<difference; i++){
+                newData["Skills"].push(obj)
+            }
+        }
+        else if(difference < 0){
+            for(let i = 0; i<Math.abs(difference); i++){
+                newData["Skills"].pop()
+            }
+        }
+        newData["Skills"].push(obj)
+    }
+
     return {...newData}
 }
