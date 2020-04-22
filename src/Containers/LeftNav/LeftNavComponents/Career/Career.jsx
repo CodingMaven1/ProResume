@@ -10,10 +10,6 @@ import './Career.scss';
 
 class Career extends React.Component{
 
-    state = {
-        count: 1
-    }
-
     onChangeHandler = (e, type) => {
         let value = e.target.value;
         let {modifyDataFunction} = this.props;
@@ -26,25 +22,21 @@ class Career extends React.Component{
 
     onInsertFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count + 1
-        this.setState({count: count})
         let {addDummyDataFunction} = this.props;
         addDummyDataFunction("CareerHistory")
     }
 
     onDeleteFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count - 1
-        this.setState({count: count})
         let {deleteDummyDataFunction} = this.props
         deleteDummyDataFunction("CareerHistory")
     }
 
     render(){
+        let {countobj} = this.props;
+        let count = countobj["CareerHistory"]
         let arr = []
-        for(let i = 0; i<= this.state.count; i++){
+        for(let i = 0; i<= count; i++){
             arr[i] = i
         }
         return(
@@ -83,4 +75,8 @@ const mapDispatchToProps = dispatch => ({
     deleteDummyDataFunction: type => dispatch(deleteDummyData(type))
 })
 
-export default connect(null, mapDispatchToProps)(Career);
+const mapStateToProps = state => ({
+    countobj: state.user.count
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Career);

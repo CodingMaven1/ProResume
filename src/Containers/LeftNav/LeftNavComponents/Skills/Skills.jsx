@@ -10,9 +10,9 @@ import './Skills.scss';
 
 class Skills extends React.Component{
 
-    state = {
-        count: 5
-    }
+    // state = {
+    //     count: 5
+    // }
 
     onChangeHandler = (e,type) => {
         let value = e.target.value;
@@ -36,24 +36,19 @@ class Skills extends React.Component{
 
     onInsertFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count + 1
-        this.setState({count: count})
         let {addDummyDataFunction} = this.props;
         addDummyDataFunction("Skills")
     }
 
     onDeleteFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count - 1
-        this.setState({count: count})
         let {deleteDummyDataFunction} = this.props
         deleteDummyDataFunction("Skills")
     }
 
     render(){
-        let {data} = this.props
+        let {data, countobj} = this.props
+        let count = countobj["Skills"]
         let skills = data.Skills;
         for(let i = 0; i< skills.length; i++){
             if(skills[i].value > 5){
@@ -64,7 +59,7 @@ class Skills extends React.Component{
             }
         }
         let arr = []
-        for(let i = 0; i <= this.state.count; i++){
+        for(let i = 0; i <= count; i++){
             arr[i] = i
         }
         return(
@@ -74,7 +69,7 @@ class Skills extends React.Component{
                         let key = "Skills " + obj.toString() + " key"
                         return(
                             <div key={obj} className="Skills--Div">
-                                <Input label="Skill" changed={event => this.onChangeHandler(event,key)} type="text" placeholder="Skill" />
+                                <Input label="Skill" changed={event => this.onChangeHandler(event,key)} type="text" placeholder={skills[obj].key} />
                                 <div className="Skills--DivRating">
                                     <img src={minus} className="Skills--DivRatingImg" alt="minus" onClick={event => this.onDecreaseHandler(event,obj.toString())} />
                                     <h2 className="Skills--DivRatingScore">{skills[obj].value}</h2>
@@ -102,7 +97,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-    data: state.user.data
+    data: state.user.data,
+    countobj: state.user.count
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Skills);

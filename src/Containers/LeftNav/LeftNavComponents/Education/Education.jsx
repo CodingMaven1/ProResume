@@ -9,9 +9,6 @@ import minus from '../../../../Assets/minus.svg';
 import './Education.scss';
 
 class Education extends React.Component{
-    state = {
-        count : 1
-    }
 
     onChangeHandler = (e, type) => {
         let value = e.target.value;
@@ -25,25 +22,21 @@ class Education extends React.Component{
 
     onInsertFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count + 1
-        this.setState({count: count})
         let {addDummyDataFunction} = this.props;
         addDummyDataFunction("Education")
     }
 
     onDeleteFields = (e) => {
         e.preventDefault();
-        let count = this.state.count;
-        count = count - 1
-        this.setState({count: count})
         let {deleteDummyDataFunction} = this.props
         deleteDummyDataFunction("Education")
     }
 
     render(){
+        let {countobj} = this.props;
+        let count = countobj["Education"]
         let arr = []
-        for(let i = 0; i<= this.state.count; i++){
+        for(let i = 0; i<= count; i++){
             arr[i] = i
         }
         return(
@@ -83,4 +76,9 @@ const mapDispatchToProps = dispatch => ({
     deleteDummyDataFunction: type => dispatch(deleteDummyData(type))
 })
 
-export default connect(null, mapDispatchToProps)(Education);
+const mapStateToProps = state => ({
+    countobj: state.user.count
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Education);

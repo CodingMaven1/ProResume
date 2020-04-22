@@ -87,6 +87,26 @@ export const addDummyDataUtil = (previousData, type) => {
     return {...newData}
 }
 
+// UTILITY FUNCTION FOR INCREASING THE COUNT 
+
+export const increaseCountUtil = (previousCount, type) => {
+    let count = previousCount;
+    let countValue = count[type];
+    countValue = countValue + 1;
+    count[type] = countValue;
+    return {...count}
+}
+
+// UTILITY FUNCTION FOR DECREASING THE COUNT 
+
+export const decreaseCountUtil = (previousCount, type) => {
+    let count = previousCount;
+    let countValue = count[type];
+    countValue = countValue - 1;
+    count[type] = countValue;
+    return {...count}
+}
+
 // UTILITY FUNCTON FOR DELETING THE INPUT FIELDS
 
 export const deleteDummyDataUtil = (previousData, type) => {
