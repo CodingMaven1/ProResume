@@ -6,6 +6,7 @@ import jsPDF from 'jspdf';
 import Satiny from '../../Templates/Satiny/Satiny';
 import Euphony from '../../Templates/Euphony/Euphony';
 
+import download from '../../Assets/download.svg';
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {
@@ -45,7 +46,10 @@ class PdfViewer extends React.Component {
                 <div id="capture">
                     {userTemplate}
                 </div>
-                <button onClick={e => this.onPdfHandler(e)} className="PdfViewer--Download">Generate</button>
+                <div className="PdfViewer--Options">
+                    <img src={download} onClick={e => this.onPdfHandler(e)} className="PdfViewer--Option" />
+
+                </div>
             </div>
         )
     }
