@@ -1,9 +1,12 @@
 .PdfViewer{
     height: 100vh;
     width: 56vw;
+    padding-top: 10vh;
+    padding-bottom: 2vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     overflow-y: scroll;
 }
 
