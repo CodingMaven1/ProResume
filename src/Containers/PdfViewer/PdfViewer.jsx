@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-
+import {resetTemplate} from '../../redux/user/user-actions';
 import Satiny from '../../Templates/Satiny/Satiny';
 import Euphony from '../../Templates/Euphony/Euphony';
 
 import download from '../../Assets/download.svg';
+import portfolio from '../../Assets/portfolio.svg';
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {
@@ -23,8 +24,15 @@ class PdfViewer extends React.Component {
             const imgData = canvas.toDataURL('image/png');
             let pdf = new jsPDF();
             pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
-            pdf.save("download.pdf");  
+            pdf.save("ProResume.pdf");  
         });
+    }
+
+    onResetHandler = (event) => {
+        event.preventDefault();
+
+        let {template, resetTemplateFunction} = this.props;
+        resetTemplateFunction(template);
     }
 
     render(){
@@ -47,8 +55,10 @@ class PdfViewer extends React.Component {
                     {userTemplate}
                 </div>
                 <div className="PdfViewer--Options">
-                    <img src={download} onClick={e => this.onPdfHandler(e)} className="PdfViewer--Option" />
-
+                    <div className="PdfViewer--OptionsContainer">
+                        <img src={download} onClick={e => this.onPdfHandler(e)} className="PdfViewer--Option" alt="Download Resume"/>
+                        <img src={portfolio} onClick={e => this.onResetHandler(e)} className="PdfViewer--Option" alt="Reset Template" />
+                    </div>
                 </div>
             </div>
         )
@@ -60,4 +70,8 @@ const mapStateToProps = state => ({
     template: state.user.template
 })
 
-export default connect(mapStateToProps)(PdfViewer);
+const mapDispatchToProps = dispatch => ({
+    resetTemplateFunction: template => dispatch(resetTemplate(template))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PdfViewer);

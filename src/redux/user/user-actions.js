@@ -3,6 +3,11 @@ export const changeTemplate = template => ({
     payload: template
 })
 
+export const resetTemplate = template => ({
+    type: 'RESET_TEMPLATE',
+    payload: template
+})
+
 export const modifyData = data => ({
     type: 'MODIFY_DATA',
     payload: data

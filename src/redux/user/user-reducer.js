@@ -19,6 +19,11 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
+        case 'RESET_TEMPLATE':
+            return{
+                ...state,
+                data: TemplateDummyData[action.payload]
+            }
         case 'CHANGE_TEMPLATE':
             return{
                 ...state,
