@@ -43,6 +43,19 @@ export const updateView = (previousview,type) => {
     return {...newview}
 }
 
+// UTILITY FUNCTION FOR NAVIGATING THE RIGHT NAVBAR
+
+export const updateViewRight = (previousview,type) => {
+    let newview = previousview;
+    for(let i of Object.keys(previousview)){
+        newview[i] = false
+    }
+
+    newview[type] = true
+
+    return {...newview}
+}
+
 // UTILITY FUNCTION FOR INCREASING THE RATING
 
 export const increaseRatingUtil = (previousData, index) => {

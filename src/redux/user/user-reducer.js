@@ -1,5 +1,5 @@
 import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
-import {updateValue, updateView, increaseRatingUtil, decreaseRatingUtil, addDummyDataUtil, deleteDummyDataUtil, changeTemplate, increaseCountUtil, decreaseCountUtil} from './user-utils';
+import {updateValue, updateView, updateViewRight, increaseRatingUtil, decreaseRatingUtil, addDummyDataUtil, deleteDummyDataUtil, changeTemplate, increaseCountUtil, decreaseCountUtil} from './user-utils';
 
 const INITIAL_STATE = {
     data: TemplateDummyData["Satiny"],
@@ -10,6 +10,11 @@ const INITIAL_STATE = {
         Education: false,
         Skills: false
     },
+    viewRight: {
+        Templates: true,
+        Colors: false,
+        Fonts: false
+    },
     count: {
         CareerHistory: 1,
         Education: 1,
@@ -19,11 +24,6 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case 'RESET_TEMPLATE':
-            return{
-                ...state,
-                data: TemplateDummyData[action.payload]
-            }
         case 'CHANGE_TEMPLATE':
             return{
                 ...state,
@@ -39,6 +39,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 view: updateView(state.view, action.payload)
+            }
+        case 'NAVIGATE_DATA_RIGHT':
+            return{
+                ...state,
+                viewRight: updateViewRight(state.viewRight, action.payload)
             }
         case 'RATING_INCREASE':
             return{

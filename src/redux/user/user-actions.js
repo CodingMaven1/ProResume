@@ -3,11 +3,6 @@ export const changeTemplate = template => ({
     payload: template
 })
 
-export const resetTemplate = template => ({
-    type: 'RESET_TEMPLATE',
-    payload: template
-})
-
 export const modifyData = data => ({
     type: 'MODIFY_DATA',
     payload: data
@@ -15,6 +10,11 @@ export const modifyData = data => ({
 
 export const navigateData = data => ({
     type: 'NAVIGATE_DATA',
+    payload: data
+})
+
+export const navigateDataRight = data => ({
+    type: 'NAVIGATE_DATA_RIGHT',
     payload: data
 })
 

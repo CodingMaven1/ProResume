@@ -37,18 +37,23 @@
         position: fixed;
         top: 0;
         left: 22%;
-        background-color: rgba(255,255,255,0.4);
-        @include flexCenter;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
 
         .PdfViewer--OptionsContainer{
-            height: 100%;
-            width: 25%;
+            height: 75%;
+            width: 10%;
             display: flex;
             align-items: center;
             justify-content: space-around;
+            background-color: #fff;
+            border-radius: 2rem;
+            margin-right: 1.5rem;
 
             .PdfViewer--Option{
-                height: 5vh;
+                height: 4vh;
                 width: auto;
                 cursor: pointer;
             }

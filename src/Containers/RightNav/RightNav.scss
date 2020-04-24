@@ -2,4 +2,12 @@
     height: 100vh;
     width: 22vw;
     background-color: #ffffff;
+
+    .RightNav--Options{
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        font-weight: 500;
+        outline: none !important;
+        cursor: pointer;
+    }
 }
