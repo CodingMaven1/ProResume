@@ -1,12 +1,40 @@
 import React from "react";
+import {connect} from 'react-redux';
+import {changeColor} from '../../../../redux/user/user-actions';
 import { TwitterPicker } from 'react-color';
 
 import './Color.scss';
 
 class ColorPicker extends React.Component{
 
-    handleColorSwatch = (color) => {
+    handleColorSwatchPrimary = (color) => {
         let statecolor = color.hex;
+        let {colorFunction} = this.props;
+        let data = {
+            type: 'primary',
+            color: statecolor
+        }
+        colorFunction(data)
+    }
+
+    handleColorSwatchSecondary = (color) => {
+        let statecolor = color.hex;
+        let {colorFunction} = this.props;
+        let data = {
+            type: 'secondary',
+            color: statecolor
+        }
+        colorFunction(data)
+    }
+
+    handleColorSwatchFont = (color) => {
+        let statecolor = color.hex;
+        let {colorFunction} = this.props;
+        let data = {
+            type: 'font',
+            color: statecolor
+        }
+        colorFunction(data)
     }
 
     render(){
@@ -14,19 +42,23 @@ class ColorPicker extends React.Component{
             <div className="Color">
                 <div className="Color--Type">
                     <h1 className="Color--TypeHeading">Primary Color</h1>
-                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatch}/>
+                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatchPrimary}/>
                 </div>
                 <div className="Color--Type">
                     <h1 className="Color--TypeHeading">Secondary Color</h1>
-                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatch} />
+                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatchSecondary} />
                 </div>
                 <div className="Color--Type">
-                    <h1 className="Color--TypeHeading">Tertiary Color</h1>
-                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatch} />
+                    <h1 className="Color--TypeHeading">Font Color</h1>
+                    <TwitterPicker triangle="hide" onChangeComplete={this.handleColorSwatchFont} />
                 </div>
             </div>
         )
     }
 }
 
-export default ColorPicker;
+const mapDispatchToProps = dispatch => ({
+    colorFunction: data => dispatch(changeColor(data))
+})
+
+export default connect(null, mapDispatchToProps)(ColorPicker);

@@ -37,3 +37,8 @@ export const deleteDummyData = data => ({
     type: "DELETE_DUMMY_DATA",
     payload: data
 })
+
+export const changeColor = data => ({
+    type: "CHANGE_COLOR",
+    payload: data
+})
