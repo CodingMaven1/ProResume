@@ -6,6 +6,7 @@ import Satiny from '../../Templates/Satiny/Satiny';
 import Euphony from '../../Templates/Euphony/Euphony';
 
 import download from '../../Assets/download.svg';
+import refresh from '../../Assets/refresh.svg';
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {
@@ -24,6 +25,10 @@ class PdfViewer extends React.Component {
             pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
             pdf.save("ProResume.pdf");  
         });
+    }
+
+    onRefreshHandler = () => {
+        window.location.reload()
     }
 
     render(){
@@ -48,6 +53,7 @@ class PdfViewer extends React.Component {
                 <div className="PdfViewer--Options">
                     <div className="PdfViewer--OptionsContainer">
                         <img src={download} onClick={e => this.onPdfHandler(e)} className="PdfViewer--Option" alt="Download Resume"/>
+                        <img src={refresh} onClick={e => this.onRefreshHandler(e)} className="PdfViewer--Option" alt="Refresh"/>
                     </div>
                 </div>
             </div>
