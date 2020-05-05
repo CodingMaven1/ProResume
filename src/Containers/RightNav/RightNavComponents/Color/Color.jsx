@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {changeColor} from '../../../../redux/user/user-actions';
+import {changeColor} from '../../../../redux/actions/actions-action';
 import { TwitterPicker } from 'react-color';
 
 import './Color.scss';

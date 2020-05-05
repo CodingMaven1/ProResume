@@ -6,14 +6,17 @@
 }
 
 .Satiny{
-    height: 95vh;
-    width: 40vw;
+    // height: 95vh;
+    // width: 40vw;
+    width: 21cm;
+    min-height: 29.7cm;
     background-color: #fff;
     display: flex;
     font-family: 'Open Sans', sans-serif;
+    zoom: 0.8;
 
     .Satiny--Left{
-        height: 100%;
+        min-height: 100%;
         width: 40%;
         background-color: #f4f4ee;
         display: flex;
@@ -60,7 +63,7 @@
     }
 
     .Satiny--Right{
-        height: 100%;
+        min-height: 100%;
         width: 60%;
         background-color: #fff;
         display: flex;
@@ -114,4 +117,9 @@
             }
         }
     }
+}
+
+@page {
+    size: A4;
+    margin: 0;
 }

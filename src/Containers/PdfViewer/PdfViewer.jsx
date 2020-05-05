@@ -58,7 +58,7 @@ class PdfViewer extends React.Component {
 const mapStateToProps = state => ({
     data: state.user.data,
     template: state.user.template,
-    colors: state.user.color
+    colors: state.actions.color
 })
 
 

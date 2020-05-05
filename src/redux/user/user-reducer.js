@@ -1,5 +1,5 @@
 import TemplateDummyData from '../../Containers/PdfViewer/TemplateDummyData';
-import {changeColor,updateValue, updateView, updateViewRight, increaseRatingUtil, decreaseRatingUtil, addDummyDataUtil, deleteDummyDataUtil, changeTemplate, increaseCountUtil, decreaseCountUtil} from './user-utils';
+import {updateValue, updateView, updateViewRight, increaseRatingUtil, decreaseRatingUtil, addDummyDataUtil, deleteDummyDataUtil, changeTemplate, increaseCountUtil, decreaseCountUtil} from './user-utils';
 
 const INITIAL_STATE = {
     data: TemplateDummyData["Satiny"],
@@ -19,11 +19,6 @@ const INITIAL_STATE = {
         CareerHistory: 1,
         Education: 1,
         Skills: 5
-    },
-    color: {
-        primary: null,
-        secondary: null,
-        font: null
     }
 }
 
@@ -71,11 +66,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 data: deleteDummyDataUtil(state.data, action.payload),
                 count: decreaseCountUtil(state.count, action.payload)
-            }
-        case 'CHANGE_COLOR':
-            return{
-                ...state,
-                color: changeColor(state.color,action.payload)
             }
         default:
             return state;
