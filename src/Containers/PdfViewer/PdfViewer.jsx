@@ -47,8 +47,10 @@ class PdfViewer extends React.Component {
 
         return(
             <div className="PdfViewer">
-                <div id="capture">
-                    {userTemplate}
+                <div style={{zoom: 0.8}}>
+                    <div id="capture">
+                        {userTemplate}
+                    </div>
                 </div>
                 <div className="PdfViewer--Options">
                     <div className="PdfViewer--OptionsContainer">
