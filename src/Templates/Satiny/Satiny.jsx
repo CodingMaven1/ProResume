@@ -6,7 +6,8 @@ import './Satiny.scss';
 
 class Satiny extends React.Component {
     render(){
-        let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills,colors,template} = this.props;
+        let {data, template, colors} = this.props;
+        let {Name,Pos,About,Mobile,Email,Address,Website,CareerHistory,Education,Skills} = data
 
         let primary = colors.primary;
         let secondary = colors.secondary;
@@ -33,12 +34,12 @@ class Satiny extends React.Component {
                 <div className="Satiny--Left" style={{backgroundColor: primary, color: fontcolor}}>
                     <img src={Dp} alt="Dp" className="Satiny--LeftImg" />
                     <div className="Satiny--LeftPerson">
-                        <h1 className="Satiny--LeftName">{name}</h1>
-                        <h1 className="Satiny--LeftPos">{pos}</h1>
+                        <h1 className="Satiny--LeftName">{Name}</h1>
+                        <h1 className="Satiny--LeftPos">{Pos}</h1>
                     </div>
                     <div className="Satiny--LeftAbout">
                         <h1 className="Satiny--LeftTitle">Profile Summary</h1>
-                        <p className="Satiny--LeftPara">{about}</p>
+                        <p className="Satiny--LeftPara">{About}</p>
                     </div>
                     <div className="Satiny--LeftContact">
                         <h1 className="Satiny--LeftTitle">Contact Details</h1>
@@ -69,7 +70,7 @@ class Satiny extends React.Component {
                     <div className="Satiny--RightEducation">
                         <h1 className="Satiny--RightTitle">Education</h1>
                         {
-                                education.map((obj,index) => {
+                                Education.map((obj,index) => {
                                     return(
                                         <div key={index}>
                                             <h1 className="Satiny--RightSubtitle" style={{color: secondary}}>{obj.Name}</h1>
@@ -84,7 +85,7 @@ class Satiny extends React.Component {
                     <div className="Satiny--RightSkills">
                         <h1 className="Satiny--RightTitle">Skills</h1>
                         {
-                            skills.map((opt,idx) => {
+                            Skills.map((opt,idx) => {
                                 let value = opt.value;
                                 let valarr= []
                                 if(value > 5){
@@ -120,7 +121,9 @@ class Satiny extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    template: state.user.template
+    template: state.user.template,
+    data: state.user.data,
+    colors: state.actions.color
 })
 
 export default connect(mapStateToProps)(Satiny);

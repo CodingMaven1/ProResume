@@ -6,7 +6,9 @@ import './Euphony.scss';
 
 class Euphony extends React.Component {
     render(){
-        let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills, template, colors} = this.props;
+        let {data, template, colors} = this.props;
+        let {Name,Pos,About,Mobile,Email,Address,Website,CareerHistory,Education,Skills} = data
+        // let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills, template, colors} = this.props;
 
         let primary = colors.primary;
         let secondary = colors.secondary;
@@ -30,8 +32,8 @@ class Euphony extends React.Component {
         return(
             <div className="Euphony" style={{backgroundColor: primary, color: fontcolor}}>
                 <div className="Euphony--Header" style={{color: fontcolor}}>
-                    <h1 className="Euphony--HeaderName" style={{color: secondary}}>{name}</h1>
-                    <h2 className="Euphony--HeaderPos">{pos}</h2>
+                    <h1 className="Euphony--HeaderName" style={{color: secondary}}>{Name}</h1>
+                    <h2 className="Euphony--HeaderPos">{Pos}</h2>
                     <div className="Euphony--HeaderContact">
                         <h2 className="Euphony--HeaderContactTitle">{Mobile}</h2>
                         <h2 className="Euphony--HeaderContactTitle">  {Email}</h2>
@@ -42,13 +44,13 @@ class Euphony extends React.Component {
                 <div className="Euphony--Body">
                     <div className="Euphony--BodyAbout">
                         <div className="Euphony--BodyTitle">Profile</div>
-                        <p className="Euphony--BodyAboutContent">{about}</p>
+                        <p className="Euphony--BodyAboutContent">{About}</p>
                     </div>
                     <div className="Euphony--BodyEducation">
                         <div className="Euphony--BodyTitle">Education</div>
                         <div className="Euphony--BodyEducationContainer">
                         {
-                            education.map((obj,index)=>{
+                            Education.map((obj,index)=>{
                                 return(
                                     <div key={index} className="Euphony--BodyEducationContent">
                                         <p className="Euphony--BodyEducationContentYear">{obj.Duration}</p>
@@ -84,7 +86,7 @@ class Euphony extends React.Component {
                             <div className="Euphony--BodyTitle">Skills</div>
                             <div className="Euphony--BodySkillsInfo">
                                 {
-                                    skills.map((opt,idx) => {
+                                    Skills.map((opt,idx) => {
                                         let value = opt.value;
                                         let valarr= []
                                         if(value > 5){
@@ -122,7 +124,9 @@ class Euphony extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    template: state.user.template
+    template: state.user.template,
+    data: state.user.data,
+    colors: state.actions.color
 })
 
 export default connect(mapStateToProps)(Euphony);

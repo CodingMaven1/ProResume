@@ -12,20 +12,10 @@ export const updateValue = (data, updatedvalue) => {
         updatedData[typeArr[0]] = updatedvalue.val
     }
     else if(typeArr.length === 3){
-        let dataObj = updatedData[typeArr[0]]
-        let dataUpdate = dataObj[parseInt(typeArr[1])]
-        dataUpdate[typeArr[2]] = updatedvalue.val
-        dataObj[parseInt(typeArr[1])] = dataUpdate;
-        updatedData[typeArr[0]] = dataObj
+        updatedData[typeArr[0]][parseInt(typeArr[1])][typeArr[2]] = updatedvalue.val
     }
     else if(typeArr.length === 4){
-        let dataObj = updatedData[typeArr[0]]
-        let dataUpdate = dataObj[parseInt(typeArr[1])]
-        let dataObjType = dataUpdate[typeArr[2]]
-        dataObjType[typeArr[3]] = updatedvalue.val
-        dataUpdate[typeArr[2]] = dataObjType;
-        dataObj[parseInt(typeArr[1])] = dataUpdate;
-        updatedData[typeArr[0]] = dataObj
+        updatedData[typeArr[0]][parseInt(typeArr[1])][typeArr[2]][typeArr[3]] = updatedvalue.val
     }
     return {...updatedData};
 }
