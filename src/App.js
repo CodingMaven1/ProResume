@@ -7,11 +7,22 @@ import './App.css';
 class App extends React.Component {
  
   render(){
-    return (
-      <div className="App">
+    let content;
+    if(window.innerWidth < 1024){
+      content = <div className="App--Mobile">
+        <h1 className="App--MobileText">This website is for desktop view only!</h1>
+      </div>
+    }
+    else{
+      content = <div className="App">
         <LeftNav />
         <PdfViewer/>
         <RightNav />
+      </div>
+    } 
+    return (
+      <div>
+        {content}
       </div>
     );
   }
