@@ -44,7 +44,7 @@
 
         .PdfViewer--OptionsContainer{
             height: 75%;
-            width: 13%;
+            width: 19%;
             display: flex;
             align-items: center;
             justify-content: space-around;
@@ -56,6 +56,10 @@
                 height: 4.5vh;
                 width: auto;
                 cursor: pointer;
+            }
+
+            .PdfViewer--ImgUpload{
+                display: none;
             }
         }
     }

@@ -7,9 +7,15 @@ import Euphony from '../../Templates/Euphony/Euphony';
 
 import download from '../../Assets/download.svg';
 import refresh from '../../Assets/refresh.svg';
+import user from '../../Assets/user.png';
 import './PdfViewer.scss';
 
 class PdfViewer extends React.Component {
+
+    state = {
+        url: '',
+        file: ''
+    }
 
     onPdfHandler = (event) => {
         event.preventDefault();
@@ -31,11 +37,26 @@ class PdfViewer extends React.Component {
         window.location.reload()
     }
 
+    onImageUploadHandler = (e) => {
+    
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onload = () => {
+          this.setState({
+            file: file,
+            url: reader.result,
+          });
+        }
+    
+        reader.readAsDataURL(file)
+      }
+
     render(){
         let {template}  = this.props;
         let userTemplate;
         if(template === "Satiny"){
-            userTemplate = <Satiny />
+            userTemplate = <Satiny url={this.state.url}/>
         }
         else if(template === "Euphony"){
             userTemplate = <Euphony />
@@ -52,6 +73,8 @@ class PdfViewer extends React.Component {
                     <div className="PdfViewer--OptionsContainer">
                         <img src={download} onClick={e => this.onPdfHandler(e)} className="PdfViewer--Option" alt="Download Resume"/>
                         <img src={refresh} onClick={e => this.onRefreshHandler(e)} className="PdfViewer--Option" alt="Refresh"/>
+                        <label for="img-upload" style={{display: 'inline-block'}}><img src={user} className="PdfViewer--Option" alt="User"/></label>
+                        <input id="img-upload" className="PdfViewer--ImgUpload" onChange={e => this.onImageUploadHandler(e)} type="file" />
                     </div>
                 </div>
             </div>

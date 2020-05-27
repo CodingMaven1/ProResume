@@ -28,11 +28,18 @@ class Satiny extends React.Component {
             fontcolor = "#000"
         }
 
-        console.log(this.props);
+        let imgurl;
+        if(this.props.url !== ''){
+            imgurl = this.props.url
+        }
+        else{
+            imgurl = Dp
+        }
+
         return(
             <div className="Satiny">
                 <div className="Satiny--Left" style={{backgroundColor: primary, color: fontcolor}}>
-                    <img src={Dp} alt="Dp" className="Satiny--LeftImg" />
+                    <img src={imgurl} alt="Dp" className="Satiny--LeftImg" />
                     <div className="Satiny--LeftPerson">
                         <h1 className="Satiny--LeftName">{Name}</h1>
                         <h1 className="Satiny--LeftPos">{Pos}</h1>
