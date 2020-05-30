@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     font-family: 'Raleway', sans-serif;
-    // zoom: 0.8;
+    word-break: break-all;
 
     .Euphony--Header{
         min-height: 23vh;
@@ -98,16 +98,23 @@
             @include flexCenter;
 
             .Euphony--BodyEducationContainer{
-                height: 100%;
+                min-height: 100%;
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                flex-wrap: wrap;
 
                 .Euphony--BodyEducationContent{
                     display: flex;
                     align-items: center;
                     flex-direction: column;
+                    width: 45%;
+                    margin-bottom: 2rem;
+
+                    &:nth-child(1),&:nth-child(2){
+                        margin-top: 2rem;
+                    }
 
                     .Euphony--BodyEducationContentYear{
                         font-size: 1.7rem;
@@ -147,6 +154,7 @@
 
                 .Euphony--BodyCareerInfo{
                     margin-top: 3vh;
+                    width: 90%;
 
                     .Euphony--BodyCareerInfoTitle{
                         font-size: 1.5rem;
