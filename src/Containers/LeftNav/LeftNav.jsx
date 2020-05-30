@@ -47,7 +47,7 @@ class LeftNav extends React.Component{
         return(
             <div className="LeftNav">
                 <Slider {...settings}>
-                    <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"PersonalInfo")}>Personal Information</h1>
+                    <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"PersonalInfo")}>Details</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Career")}>Career</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Education")}>Education</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Skills")}>Skills</h1>

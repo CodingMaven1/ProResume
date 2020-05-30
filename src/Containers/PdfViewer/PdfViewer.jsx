@@ -64,7 +64,7 @@ class PdfViewer extends React.Component {
 
         return(
             <div className="PdfViewer">
-                <div style={{zoom: 0.7}}>
+                <div className="PdfViewerCont" style={{zoom: 0.7}}>
                     <div id="capture">
                         {userTemplate}
                     </div>
