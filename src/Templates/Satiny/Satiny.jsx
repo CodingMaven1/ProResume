@@ -6,7 +6,7 @@ import './Satiny.scss';
 
 class Satiny extends React.Component {
     render(){
-        let {data, template, colors} = this.props;
+        let {data, template, colors, font} = this.props;
         let {Name,Pos,About,Mobile,Email,Address,Website,CareerHistory,Education,Skills} = data
 
         let primary = colors.primary;
@@ -22,7 +22,7 @@ class Satiny extends React.Component {
             primary = "#f4f4ee"
         }
         if(secondary === null){
-            secondary= "#909090"
+            secondary = "#909090"
         }
         if(fontcolor === null){
             fontcolor = "#000"
@@ -37,7 +37,7 @@ class Satiny extends React.Component {
         }
 
         return(
-            <div className="Satiny">
+            <div className="Satiny" style={{fontFamily: font}}>
                 <div className="Satiny--Left" style={{backgroundColor: primary, color: fontcolor}}>
                     <img src={imgurl} alt="Dp" className="Satiny--LeftImg" />
                     <div className="Satiny--LeftPerson">
@@ -110,7 +110,7 @@ class Satiny extends React.Component {
                                         {
                                             valarr.map(obj => {
                                                 return(
-                                                    <img src={star} alt="star" className="Satiny--SkillsStar" />
+                                                    <img src={star} key={obj} alt="star" className="Satiny--SkillsStar" />
                                                 )
                                             })
                                         }
@@ -130,7 +130,8 @@ class Satiny extends React.Component {
 const mapStateToProps = state => ({
     template: state.user.template,
     data: state.user.data,
-    colors: state.actions.color
+    colors: state.actions.color,
+    font: state.actions.font
 })
 
 export default connect(mapStateToProps)(Satiny);

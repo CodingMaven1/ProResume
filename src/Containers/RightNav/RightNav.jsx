@@ -4,6 +4,7 @@ import {navigateDataRight} from '../../redux/user/user-actions';
 import Slider from "react-slick";
 import TemplateChange from './RightNavComponents/TemplateChange/TemplateChange';
 import Color from './RightNavComponents/Color/Color';
+import Fonts from './RightNavComponents/Fonts/Fonts';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -34,9 +35,9 @@ class RightNav extends React.Component{
           else if(viewRight.Colors === true){
               inputFields = <Color />
           }
-        //   else if(viewRight.Fonts === true){
-        //       inputFields = <Education />
-        //   }
+          else if(viewRight.Fonts === true){
+              inputFields = <Fonts />
+          }
 
         return(
             <div className="RightNav">

@@ -6,9 +6,8 @@ import './Euphony.scss';
 
 class Euphony extends React.Component {
     render(){
-        let {data, template, colors} = this.props;
+        let {data, template, colors, font} = this.props;
         let {Name,Pos,About,Mobile,Email,Address,Website,CareerHistory,Education,Skills} = data
-        // let {name,pos,about,Mobile,Email,Website,Address,CareerHistory,education,skills, template, colors} = this.props;
 
         let primary = colors.primary;
         let secondary = colors.secondary;
@@ -30,7 +29,7 @@ class Euphony extends React.Component {
         }
 
         return(
-            <div className="Euphony" style={{backgroundColor: primary, color: fontcolor}}>
+            <div className="Euphony" style={{backgroundColor: primary, color: fontcolor, fontFamily: font}}>
                 <div className="Euphony--Header" style={{color: fontcolor}}>
                     <h1 className="Euphony--HeaderName" style={{color: secondary}}>{Name}</h1>
                     <h2 className="Euphony--HeaderPos">{Pos}</h2>
@@ -50,7 +49,7 @@ class Euphony extends React.Component {
                         <div className="Euphony--BodyTitle">Education</div>
                         <div className="Euphony--BodyEducationContainer">
                         {
-                            Education.map((obj,index)=>{
+                            Education.map((obj,index) => {
                                 return(
                                     <div key={index} className="Euphony--BodyEducationContent">
                                         <p className="Euphony--BodyEducationContentYear">{obj.Duration}</p>
@@ -104,7 +103,7 @@ class Euphony extends React.Component {
                                                 {
                                                     valarr.map(obj => {
                                                         return(
-                                                            <img src={star} alt="star" className="Euphony--SkillsStar" />
+                                                            <img src={star} key={obj} alt="star" className="Euphony--SkillsStar" />
                                                         )
                                                     })
                                                 }
@@ -126,7 +125,8 @@ class Euphony extends React.Component {
 const mapStateToProps = state => ({
     template: state.user.template,
     data: state.user.data,
-    colors: state.actions.color
+    colors: state.actions.color,
+    font: state.actions.font
 })
 
 export default connect(mapStateToProps)(Euphony);

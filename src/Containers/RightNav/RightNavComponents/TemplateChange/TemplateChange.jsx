@@ -10,8 +10,14 @@ class TemplateChange extends React.Component {
         let {changeTemplate} = this.props;
         return(
             <div className="TemplateChange">
-                <img className="TemplateChange--Img" src={satiny} alt="Temp1" onClick={() => changeTemplate("Satiny")} />
-                <img className="TemplateChange--Img" src={euphony} alt="Temp2" onClick={() => changeTemplate("Euphony")} />
+                <div className="TemplateChange--Container">
+                    <img className="TemplateChange--Img" src={satiny} alt="Temp1" onClick={() => changeTemplate("Satiny")} />
+                    <h1 className="TemplateChange--Title">Satiny</h1>
+                </div>
+                <div className="TemplateChange--Container">
+                    <img className="TemplateChange--Img" src={euphony} alt="Temp2" onClick={() => changeTemplate("Euphony")} />
+                    <h1 className="TemplateChange--Title">Euphony</h1>
+                </div>
             </div>
         )
     }

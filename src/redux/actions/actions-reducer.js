@@ -5,7 +5,8 @@ const INITIAL_STATE = {
         primary: null,
         secondary: null,
         font: null
-    }
+    },
+    font: 'Raleway'
 }
 
 const actionsReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +15,11 @@ const actionsReducer = (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 color: changeColor(state.color,action.payload)
+            }
+        case 'CHANGE_FONT':
+            return{
+                ...state,
+                font: action.payload
             }
         default:
             return state;
