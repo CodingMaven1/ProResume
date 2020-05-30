@@ -52,7 +52,9 @@ class LeftNav extends React.Component{
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Education")}>Education</h1>
                     <h1 className="LeftNav--Options" onClick={event => this.onClickHandler(event,"Skills")}>Skills</h1>
                 </Slider>
-                {inputFields}
+                <div className="LeftNav--Content">
+                    {inputFields}
+                </div>
             </div>
         )
     }
